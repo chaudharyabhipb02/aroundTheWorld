@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{%endblock%}</title>
+
+</head>
+<body>
+<div>
+    <img src="{% static "images" %}"alt="loss angeles" style="width:50%;"}>
+</div>
+<div class="bgimg" id="content"style="color: beige;">
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>

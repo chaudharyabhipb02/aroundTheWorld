@@ -1,0 +1,22 @@
+
+def login(request):
+    if request.method == 'POST':
+        form = RegistrationForm1(request.POST)
+        if form.is_valid():
+            u_email=form.cleaned_data["email"]
+            u_password = form.cleaned_data["password"]
+            p=tb_registrations.objects.get(email=u_email,password=u_password)
+            if(p.count()>0):
+                request.session['username']=u_email
+                print("valid username",p)
+                return HttpResponseRedirect('/thanks')
+            else:
+                print('try again',p)
+                return HttpResponseNotFound('<h1>no page here</h1>')
+        else:
+            print("\n\n this is else block:{0}\n\n")
+            return render(request,"abhi3/login.html",{'form':form})
+    else:
+        form=LoginForm1()
+        print("\n\n tis is else block:{0}\n\n")
+        return render(request,"abhi3/login.html",{"form":form})
