@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .form import RegistrationForm1
-from .form import LoginForm1
+from .form import LoginForm1, SearchForm
 from .model import tb_register
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
-
+import requests
 
 def pro(request):
     return render(request, "myapp/index.html")
@@ -26,7 +26,22 @@ def tour(request):
 
 
 def home(request):
-    return render(request, 'myapp/home.html')
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            departure = form.cleaned_data["departure"]
+            arrival = form.cleaned_data["arrival"]
+            date = form.cleaned_data["date"]
+            request.session["departure"] = departure
+            request.session["arrival"] = arrival
+            request.session["date"] = date
+
+        else:
+            return HttpResponse("Not valid")
+        return redirect('/flight')
+    else:
+        form = SearchForm()
+        return render(request, 'myapp/home.html', {"form": form})
 
 
 def register(request):
@@ -77,3 +92,9 @@ def sis(request):
     if request.session.has_key("username"):
         username = request.session["username"]
     return render(request, "myapp/done.html", {"username": username})
+
+
+def flight_search(request):
+    objects = requests.get('http://127.0.0.1:5000/api/flights/find/{}/{}/'.format(request.session["departure"], request.session["arrival"]))
+    fetched_data = objects.json()
+    return render(request, "myapp/flightData.html", {"flights": fetched_data})

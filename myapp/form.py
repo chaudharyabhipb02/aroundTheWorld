@@ -16,3 +16,9 @@ class RegistrationForm1(forms.Form):
 class LoginForm1(forms.Form):
     email = forms.CharField(label="Enter Your Email", max_length=200, widget=forms.EmailInput)
     password = forms.CharField(label="Enter Your password", max_length=200)
+
+
+class SearchForm(forms.Form):
+    departure = forms.CharField(label="From", max_length=50)
+    arrival = forms.CharField(label="To", max_length=50)
+    date = forms.CharField(label="Date")
