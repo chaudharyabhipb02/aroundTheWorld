@@ -1,4 +1,6 @@
 from django.db import models
+
+
 class tb_register(models.Model):
 
     name = models.CharField(max_length=225)
