@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'abhi','abhi2','abhi3','myapp'
+    'myapp'
 ]
 
 MIDDLEWARE = [
@@ -116,7 +116,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-MEDIA_ROOT=os.path.join(BASE_DIR,'/jp/jpro/abhi3/templates/static/Images/')
+
 MEDIA_URL='/IMAGES/'
 STATIC_URL = '/static/'
-STATICFILES_DIRS=["/jp/jpro/abhi/templates/static/","/jp/jpro/abhi2/templates/static/","/jp/jpro/abhi3/templates/static/","/jp/jpro/myapp/templates/static"]
+STATICFILES_DIRS=["/jp/jpro/myapp/templates/static"]

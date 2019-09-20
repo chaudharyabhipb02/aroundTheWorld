@@ -20,11 +20,6 @@ from django.conf.urls import include,url
 from django.contrib import admin
 from django.conf.urls import url
 urlpatterns=[
-    url(r'^abhi/',include('abhi.urls')),
     url(r'^admin/',admin.site.urls),
-    url(r'^arsh/',include('abhi.urls')),
-    url(r'^baba/',include('abhi.urls')),
-    url(r'^myapp/',include('abhi2.urls')),
-    url(r'^app/',include('abhi3.urls')),
     url(r'^pro/',include('myapp.urls'))
             ]
