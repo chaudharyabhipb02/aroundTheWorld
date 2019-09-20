@@ -62,7 +62,9 @@
         <div class="tabs_cont">
           <form id="form_1" method="POST">
             {% csrf_token %}
-            {{ form }}
+            Departure: {{ form.departure }}
+            Arrival: {{ form.arrival }}
+            Date: {{ form.date }}
             <input class="wrapper pad_bot1" type="submit" value="search">
           </form>
         </div>

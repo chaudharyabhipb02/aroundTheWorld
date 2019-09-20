@@ -4,6 +4,8 @@ from .form import LoginForm1, SearchForm
 from .model import tb_register
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 import requests
+from datetime import datetime
+
 
 def pro(request):
     return render(request, "myapp/index.html")
@@ -31,11 +33,16 @@ def home(request):
         if form.is_valid():
             departure = form.cleaned_data["departure"]
             arrival = form.cleaned_data["arrival"]
-            date = form.cleaned_data["date"]
+            date_value = form.cleaned_data["date"]
+            array = date_value.split("/")
+            date = array[0]
+            month = array[1]
+            year = array[2]
             request.session["departure"] = departure
             request.session["arrival"] = arrival
             request.session["date"] = date
-
+            request.session["month"] = month
+            request.session["year"] = year
         else:
             return HttpResponse("Not valid")
         return redirect('/flight')
@@ -95,6 +102,37 @@ def sis(request):
 
 
 def flight_search(request):
-    objects = requests.get('http://127.0.0.1:5000/api/flights/find/{}/{}/'.format(request.session["departure"], request.session["arrival"]))
+    state_data_utl = "http://airlabs.co/api/v6/autocomplete?api_key=670d1cf7-b4de-40ae-94c8-2f4f67c0decb&query="
+    departure_input = request.session["departure"]
+    arrival_input = request.session["arrival"]
+    departure_state_data = requests.get(state_data_utl + departure_input)
+    arrival_state_data = requests.get(state_data_utl + arrival_input)
+
+    departure_code = departure_state_data.json()["response"]["cities"][0]['code'].lower()
+    arrival_code = arrival_state_data.json()["response"]["cities"][0]['code'].lower()
+    objects = requests.get('http://127.0.0.1:5000/api/flights/find/{}/{}/{}/{}/{}/'.format
+                           (departure_code, arrival_code,
+                            request.session['year'],
+                            request.session['month'],
+                            request.session['date']))
+    print(request.session["date"])
     fetched_data = objects.json()
-    return render(request, "myapp/flightData.html", {"flights": fetched_data})
+    custom_data = []
+    for flight in fetched_data:
+        custom_dict = {
+            "departure": departure_state_data.json()["response"]["cities"][0]["name"],
+            "arrival": arrival_state_data.json()["response"]["cities"][0]["name"],
+            "departure_date": datetime.strptime(flight["departure_date"], "%d/%m/%y").strftime("%d, %b %Y"),
+            "arrival_date": datetime.strptime(flight["arrival_date"], "%d/%m/%y").strftime("%d, %b %Y"),
+            "departure_time": flight["departure_time"],
+            "arrival_time": flight["arrival_time"],
+            "departure_code": flight["departure"],
+            "arrival_code": flight["arrival"],
+            "flight_number": flight["flight_number"],
+            "image": flight["image"],
+            "airline": flight["airline"],
+            "price": flight["price"]
+        }
+        custom_data.append(custom_dict)
+    return render(request, "myapp/flightData.html", {"flights": custom_data})
+

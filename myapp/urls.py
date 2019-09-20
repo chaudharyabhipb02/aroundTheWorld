@@ -11,5 +11,5 @@ urlpatterns = [
     url(r'register', views.register, name='register'),
     url(r'login', views.login, name='login'),
     url(r'sss', views.sis, name='sis'),
-    url(r'flight', views.flight_search, name="flight_data")
+    url(r'flight', views.flight_search, name="flight_data"),
 ]

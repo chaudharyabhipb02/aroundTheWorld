@@ -7,6 +7,7 @@
 <link rel="stylesheet" href='{% static "css/reset.css"%}' type="text/css" media="all">
 <link rel="stylesheet" href='{% static "css/layout.css"%}' type="text/css" media="all">
 <link rel="stylesheet" href='{%static "css/style.css"%}' type="text/css" media="all">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script type="text/javascript" src='{% static "js/jquery-1.4.2.js"%}' ></script>
 <script type="text/javascript" src='{% static "js/cufon-yui.js"%}'></script>
 <script type="text/javascript" src='{% static "js/cufon-replace.js"%}'></script>
@@ -14,6 +15,9 @@
 <!--[if lt IE 9]>
 <script type="text/javascript" src="js/ie6_script_other.js"></script>
 <script type="text/javascript" src="js/html5.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" media="all"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript">
+</script> <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
 <![endif]-->
 </head>
 <body id="page1">
@@ -32,21 +36,29 @@
           <li><a href="destinations.html" class="nav4">Destinations</a></li>
           <li class="end"><a href="contacts.html" class="nav5">Contacts</a></li>
         </ul>
-          <form  method="post">
+<!--          <form  method="post">-->
 
-     {% csrf_token %}
+<!--     {% csrf_token %}-->
 
-     {{form.as_p}}
+<!--     {{form.as_p}}-->
 
-    <input type="submit" name= "submit" value="submit"/>
-          </form>
+<!--    <input type="submit" name= "submit" value="submit"/>-->
+<!--          </form>-->
 
 
+<!--      </nav>-->
+
+
+<!--      <div class="img"><img src='{% static "images/img.jpg"%}' alt=""></div>-->
       </nav>
-
-
-      <div class="img"><img src='{% static "images/img.jpg"%}' alt=""></div>
+      </div>
     </header>
+    <div>
+      {% block content %}
+
+    {% endblock content %}
+    </div>
+
     <section id="content">
       <article class="col1">
         <h3>Hot Travel</h3>
@@ -102,7 +114,11 @@
   </div>
 </div>
 <script type="text/javascript"> Cufon.now(); </script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <!-- END PAGE SOURCE -->
+
 </body>
 </html>
 

@@ -466,3 +466,8 @@ footer .rf {
 	margin:0;
 	padding:0;
 }
+
+.hover:hover {
+    box-shadow: 1px 3px 6px 0.5px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
