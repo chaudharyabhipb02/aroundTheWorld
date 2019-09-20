@@ -120,5 +120,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '/jp/aroundTheWorld/myapp/templates/static/I
 MEDIA_URL = '/IMAGES/'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'myapp/templates/static')]
-
-print(BASE_DIR)
