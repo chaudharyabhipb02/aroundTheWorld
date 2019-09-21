@@ -1,4 +1,5 @@
 from django import forms
+import datetime
 
 
 class RegistrationForm1(forms.Form):
@@ -18,7 +19,12 @@ class LoginForm1(forms.Form):
     password = forms.CharField(label="Enter Your password", max_length=200)
 
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+    format = ["%d/%m/%Y"]
+
+
 class SearchForm(forms.Form):
     departure = forms.CharField(label="From", max_length=50)
     arrival = forms.CharField(label="To", max_length=50)
-    date = forms.CharField(label="Date")
+    date = forms.DateField(initial=datetime.datetime.today(), widget=DateInput)
