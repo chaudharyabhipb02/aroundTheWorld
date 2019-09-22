@@ -6,19 +6,7 @@ for locations: https://traveldjangoapp.herokuapp.com/api/locations
 
 to get flight data: https://traveldjangoapp.herokuapp.com/api/flights/find/{ departure state code }/{ arrival state code }
 
-<<<<<<< HEAD
-
-
 for example:
 
 Chandigarh (IXC) to Delhi (DEL):
 API link is https://traveldjangoapp.herokuapp.com/api/flights/find/ixc/del/
-
-
-** use command pip install
-=======
-for example:
-
-Chandigarh (IXC) to Delhi (DEL):
-API link is https://traveldjangoapp.herokuapp.com/api/flights/find/ixc/del/
->>>>>>> origin/master
