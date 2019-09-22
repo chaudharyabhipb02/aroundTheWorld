@@ -6,7 +6,8 @@ Root address for the API:
   ### Get all Flights
     https://traveldjangoapp.herokuapp.com/api/flights/
   ### Get Flight by Departure and Arrival
-  To get all flights by departure and arrival states, use https://traveldjangoapp.herokuapp.com/api/flights/find/{ Departure state code }/{ Arrival state code }. Replace { Departure state code } and { Arrival state code } with state codes (lowercase).
+  To get all flights by departure and arrival states, use
+  `https://traveldjangoapp.herokuapp.com/api/flights/find/{ Departure state code }/{ Arrival state code }` . Replace { Departure state code } and { Arrival state code } with state codes (lowercase).
 Example for Chandigarh (IXC) to Delhi (DEL) is:
 
     https://traveldjangoapp.herokuapp.com/api/flights/find/ixc/del/
