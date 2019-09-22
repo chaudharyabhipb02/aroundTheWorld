@@ -106,7 +106,6 @@ p {
 header {
 	overflow:hidden;
 	width:100%;
-	height:494px;
 }
 #logo {
 	background:url(../images/logo.jpg) no-repeat;
@@ -466,4 +465,9 @@ footer .rf {
 	float:right;
 	margin:0;
 	padding:0;
+}
+
+.hover:hover {
+    box-shadow: 1px 3px 6px 0.5px rgba(0,0,0,0.2);
+    cursor: pointer;
 }

@@ -1,4 +1,6 @@
 from django.db import models
+
+
 class tb_register(models.Model):
 
     name = models.CharField(max_length=225)
@@ -7,3 +9,6 @@ class tb_register(models.Model):
     address = models.CharField(max_length=225)
     password = models.CharField(max_length=225)
     gender = models.CharField(max_length=225)
+
+    def __str__(self):
+        return self.name
