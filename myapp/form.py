@@ -1,4 +1,7 @@
 from django import forms
+import datetime
+
+
 class RegistrationForm1(forms.Form):
     name = forms.CharField(label="Enter Your Name", max_length=200)
     email = forms.CharField(label="Enter Your Email", max_length=200, widget=forms.EmailInput)
@@ -6,10 +9,22 @@ class RegistrationForm1(forms.Form):
     address = forms.CharField(label="Enter Your Address", max_length=200)
     password = forms.CharField(label="Enter Your Password", max_length=200,widget=forms.PasswordInput)
 
-    CHOICES=[('male','male'),('female','female')]
+    CHOICES = [('male', 'male'), ('female', 'female')]
 
-    gender=forms.ChoiceField(choices=CHOICES,widget=forms.RadioSelect)
+    gender = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect)
+
 
 class LoginForm1(forms.Form):
     email = forms.CharField(label="Enter Your Email", max_length=200, widget=forms.EmailInput)
     password = forms.CharField(label="Enter Your password", max_length=200)
+
+
+class DateInput(forms.DateInput):
+    input_type = 'date'
+    format = ["%d/%m/%Y"]
+
+
+class SearchForm(forms.Form):
+    departure = forms.CharField(label="From", max_length=50)
+    arrival = forms.CharField(label="To", max_length=50)
+    date = forms.DateField(initial=datetime.datetime.today(), widget=DateInput)
