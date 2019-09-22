@@ -1,12 +1,18 @@
-API server link: https://traveldjangoapp.herokuapp.com/api/
+## Flight and location API
+Root address for the API:
 
-for flights: https://traveldjangoapp.herokuapp.com/api/flights
+    https://traveldjangoapp.herokuapp.com/api/
 
-for locations: https://traveldjangoapp.herokuapp.com/api/locations
+  ### Get all Flights
+    https://traveldjangoapp.herokuapp.com/api/flights/
+  ### Get Flight by Departure and Arrival
+  To get all flights by departure and arrival states, use https://traveldjangoapp.herokuapp.com/api/flights/find/{ Departure state code }/{ Arrival state code }. Replace { Departure state code } and { Arrival state code } with state codes (lowercase).
+Example for Chandigarh (IXC) to Delhi (DEL) is:
 
-to get flight data: https://traveldjangoapp.herokuapp.com/api/flights/find/{ departure state code }/{ arrival state code }
+    https://traveldjangoapp.herokuapp.com/api/flights/find/ixc/del/
 
-for example:
+### Get Flight by Departure and Arrival and Departure date
+Add departure date at the end of above mentioned url in format of YYYY/MM/DD.
+For example: Chandigarh to Delhi on 25/09/2019 will be:
 
-Chandigarh (IXC) to Delhi (DEL):
-API link is https://traveldjangoapp.herokuapp.com/api/flights/find/ixc/del/
+    https://traveldjangoapp.herokuapp.com/api/flights/find/ixc/del/2019/09/25/
