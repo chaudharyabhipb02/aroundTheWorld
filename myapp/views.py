@@ -108,7 +108,7 @@ def flight_search(request):
     year = date_value.strftime("%Y")
     departure_code = departure_state_data.json()["response"]["cities"][0]['code'].lower()
     arrival_code = arrival_state_data.json()["response"]["cities"][0]['code'].lower()
-    objects = requests.get('http://127.0.0.1:5000/api/flights/find/{}/{}/{}/{}/{}/'.format
+    objects = requests.get('https://traveldjangoapp.herokuapp.com/api/flights/find/{}/{}/{}/{}/{}/'.format
                            (departure_code, arrival_code,
                             year, month, date))
     fetched_data = objects.json()
