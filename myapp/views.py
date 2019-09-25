@@ -18,6 +18,8 @@ def tour(request):
 
 def home(request):
     return render(request,'myapp/home.html')
+def flight(request):
+    return render(request,'myapp/flightData.html')
 
 def register(request):
     if request.method=='POST':
