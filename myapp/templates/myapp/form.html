@@ -3,13 +3,14 @@
 {% block title %}My Form{% endblock %}
 
 {% block content %}
-<form  method="POST">
+
+<form  method="POST" style = "background : lightskyblue" >
 
      {% csrf_token %}
 
      {{form.as_p}}
 
-    <input type="submit" value = "Submit">
+    <input type="submit" value = "Submit" style = "background : white">
 
 
 </form>

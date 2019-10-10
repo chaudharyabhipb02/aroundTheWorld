@@ -46,17 +46,20 @@
       <nav>
         <ul id="menu">
           <li><a href="home.html" class="nav1">Home</a></li>
-          <li><a href="about.html" class="nav2">About Us </a></li>
+          <li><a href="display" class="nav2">About Us </a></li>
           <li><a href="tours.html" class="nav3">Our Tours</a></li>
           <li><a href="destinations.html" class="nav4">Destinations</a></li>
-          <li class="end"><a href="contacts.html" class="nav5">Contacts</a></li>
+          <li class="end"><a href="feedbacks" class="nav5">Contacts</a></li>
         </ul>
       </nav>
-      <div class="text"> <img src='{% static "images/text1.jpg"%}' alt="">
-        <h2>The Best Offers</h2>
-        <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born, a complete account of the system, and expound the actual teachings of the great explorer of the truth and will unfold in the master-builder of human happiness. None of the pleasure for pleasure.</p>
-        <a href="#" class="button">Read More</a> </div>
-      <div class="img"><img src='{% static "images/img2.jpg"%}' alt=""></div>
+      <div>
+        {% for item in key %}
+
+        <p>{{item.message}}</p>
+        <img src='{% static "images/" %}{{item.image}}' alt="">
+        {% endfor %}
+      </div>
+
     </header>
     <section id="content">
       <article class="col1">
