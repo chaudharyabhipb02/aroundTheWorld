@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 {% extends "myapp/com.html" %}
 {% load static %}
@@ -12,13 +11,13 @@
              {% csrf_token %}
 
              {{form.as_p}}
-
+                {% if btn_chk == True %}
             <input type="submit" value = "Submit" style = "background : white"></input>
-
+                {% endif %}
 
             </form>
 
-          <h1>{{msg}}</h1>
+          <h3 style="background: #491217">{{msg}} <a href="login">{{click}}</a></h3>
 
         </div>
 
