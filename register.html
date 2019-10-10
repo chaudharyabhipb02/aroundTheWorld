@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<title>Around the World</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href='{% static "css/reset.css"%}' type="text/css" media="all">
+<link rel="stylesheet" href='{% static "css/layout.css"%}' type="text/css" media="all">
+<link rel="stylesheet" href='{%static "css/style.css"%}' type="text/css" media="all">
+<script type="text/javascript" src='{% static "js/jquery-1.4.2.js"%}' ></script>
+<script type="text/javascript" src='{% static "js/cufon-yui.js"%}'></script>
+<script type="text/javascript" src='{% static "js/cufon-replace.js"%}'></script>
+<script type="text/javascript" src='{% static "js/Myriad_Pro_600.font.js"%}'></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="js/ie6_script_other.js"></script>
+<script type="text/javascript" src="js/html5.js"></script>
+<![endif]-->
+</head>
+<body id="page1">
+<!-- START PAGE SOURCE -->
+<div class="extra">
+  <div class="main">
+    <header>
+      <div class="wrapper">
+        <h1><a href="myapp/templates/myapp/index.html" id="logo">Around the World</a></h1>
+        <div class="right">
+          <div class="wrapper">
+            <form id="search" action="#" method="post">
+              <div class="bg">
+                <input type="submit" class="submit" value="">
+                <input type="text" class="input">
+              </div>
+            </form>
+          </div>
+          <div class="wrapper">
+            <nav>
+              <ul id="top_nav">
+                <li><a href="register">Register</a></li>
+                <li><a href="login">Log In</a></li>
+                <li><a href="#">Help</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <nav>
+        <ul id="menu">
+          <li><a href="myapp/templates/myapp/home.html" class="nav1">Home</a></li>
+          <li><a href="myapp/templates/myapp/about.html" class="nav2">About Us </a></li>
+          <li><a href="myapp/templates/myapp/tours.html" class="nav3">Our Tours</a></li>
+          <li><a href="myapp/templates/myapp/destinations.html" class="nav4">Destinations</a></li>
+          <li class="end"><a href="myapp/templates/myapp/contacts.html" class="nav5">Contacts</a></li>
+        </ul>
+      </nav>
+      <article class="col1">
+        <ul class="tabs">
+          <li><a href="#" class="active">Register</a></li>
+          <li><a href="#">login</a></li>
+        </ul>
+        <div class="tabs_cont">
+          <form id="form_1" action="#" method="post">
+            <div class="bg">
+              <div class="wrapper">
+                <div class="radio">
+                  <input type="radio" name="name1" checked>
+                <input type="text" class="input">
+                enter your name</div>
+              <div class="wrapper">
+                <input type="text" class="input">
+                enter your email</div>
+              <div class="wrapper check_box">
+                <input type="checkbox" checked >
+                <a href="flight">Search nearby airports</a></div>
+              <div class="wrapper">
+                <input type="text" class="input input2" value="04/11/2010"  onblur="if(this.value=='') this.value='04/11/2010'" onFocus="if(this.value =='04/11/2010' ) this.value=''">
+                Depart (mm/dd/yy)</div>
+              <div class="wrapper pad_bo  t1">
+                <input type="text" class="input input2" value="04/11/2010"  onblur="if(this.value=='') this.value='04/11/2010'" onFocus="if(this.value =='04/11/2010' ) this.value=''">
+                Return  (mm/dd/yy)</div>
+              <div class="wrapper">
+                <div class="radio">
+                  <input type="radio" name="name2" checked>
+                  Economy cabin</div>
+                <div class="radio end">
+                  <input type="radio" name="name2">
+                  Business</div>
+              </div>
+              <div class="wrapper pad_bot1"> <a href="#" class="button">Search</a> Audlts
+                <select>
+                  <option>1</option>
+                </select>
+              </div>
+            </div>
+          </form>
+        </div>
+      </article>
+      <article class="col1 pad_left1">
+        <div class="text"> <img src='{% static "images/text1.jpg"%}' alt="">
+          <h2>The Best Offers</h2>
+          <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born, a complete account of the system, and expound the actual teachings of the great explorer of the.</p>
+          <a href="#" class="button">Read More</a> </div>
+      </article>
+      <div class="img"><img src='{% static "images/img.jpg"%}' alt=""></div>
+    </header>
+    <section id="content">
+      <article class="col1">
+        <h3>Hot Travel</h3>
+        <div class="pad">
+          <div class="wrapper under">
+            <figure class="left marg_right1"><img src='{% static "images/page1_img1.jpg"%}' alt=""></figure>
+            <p class="pad_bot2"><strong>italy<br>
+              Holidays</strong></p>
+            <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
+            <a href="#" class="marker_1"></a> </div>
+          <div class="wrapper under">
+            <figure class="left marg_right1"><img src='{% static "images/page1_img2.jpg"%}' alt=""></figure>
+            <p class="pad_bot2"><strong>Philippines<br>
+              Travel</strong></p>
+            <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
+            <a href="#" class="marker_1"></a> </div>
+          <div class="wrapper">
+            <figure class="left marg_right1"><img src='{% static "images/page1_img3.jpg"%}' alt=""></figure>
+            <p class="pad_bot2"><strong>Cruise<br>
+              Holidays</strong></p>
+            <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
+            <a href="#" class="marker_1"></a> </div>
+        </div>
+      </article>
+      <article class="col2 pad_left1">
+        <h2>Popular Places</h2>
+        <div class="wrapper under">
+          <figure class="left marg_right1"><img src='{% static "images/page1_img4.jpg"%}' alt=""></figure>
+          <p class="pad_bot2"><strong>Hotel du Havre</strong></p>
+          <p class="pad_bot2">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born, a complete account of the system, and expound the actual teachings of the great explorer of the truth and will unfold in the master-builder of human happiness. </p>
+          <p class="pad_bot2"><strong>For no one rejects</strong>, dislikes, or avoids pleasure itself, because it is pleasure, but because they do not know how to pursue pleasure rationally encounter consequences that are the sorrows of those who have. Nor is there any person belonging, and their distressing anguish alone, that it dolor sit amet, consectetur adipiscing elit,.</p>
+          <a href="#" class="marker_2"></a> </div>
+        <div class="wrapper">
+          <figure class="left marg_right1"><img src='{% static "images/page1_img5.jpg"%}' alt=""></figure>
+          <p class="pad_bot2"><strong>Hotel Vacance</strong></p>
+          <p class="pad_bot2">We deem worthy of them, and they are accusing those who hate the righteous, But, in truth, and, corrupted by the flattery of the present and the pleasures deleniti they are blinded by cupidity of these pains, and for which he did not foresee the troubles of omnis, and in the same chapter be at fault..</p>
+          <p class="pad_bot2">But this requires a simple and easy distinction. For your free time, and they are independent to us the most important is that which is well pleasing in his option of choosing when they are enabled to do nothing to stop it were not so, every pleasure is.</p>
+          <a href="#" class="marker_2"></a> </div>
+      </article>
+    </section>
+  </div>
+  <div class="block"></div>
+</div>
+<div class="body1">
+  <div class="main">
+    <footer>
+      <div class="footerlink">
+        <p class="lf">Copyright &copy; 2010 <a href="#">SiteName</a> - All Rights Reserved</p>
+        <p class="rf">Design by <a href="http://www.templatemonster.com/">TemplateMonster</a></p>
+        <div style="clear:both;"></div>
+      </div>
+    </footer>
+  </div>
+</div>
+<script type="text/javascript"> Cufon.now(); </script>
+<!-- END PAGE SOURCE -->
+</body>
+</html>

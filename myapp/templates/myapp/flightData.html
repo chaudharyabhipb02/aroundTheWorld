@@ -1,0 +1,29 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{% block content %}
+      <div class="container-fluid">
+      {% for flight in flights %}
+        <div class="card hover col-xs-7 col-sm-8 col-md-9 m-2 p-0" style="margin: 10px;">
+          <div class="card-body px-3 py-2">
+            <div class="row">
+              <div class="col-sm-3 col-md-3 text-center p-2">
+                <figure class="mx-2 my-2 figure">
+                  <img class="mx-auto d-block" src="{{ flight.image }}" style="width: 80px;">
+                </figure>
+                <h6 class="card-subtitle mt-2 text-muted text-center">{{ flight.airline }} Airlines</h6>
+                <h6 class="card-subtitle mt-2 text-muted text-center" style="font-size: .8em;">{{ flight.flight_number }}</h6>
+              </div>
+              <div class="col-xs-4 col-sm-6 col-md-6 p-2">
+                  <h4 class="card-title">{{ flight.departure_time }} - {{ flight.arrival_time }}</h4>
+                  <h6 class="card-subtitle mb-2 text-muted">{{ flight.departure_day }}, {{ flight.departure_date }} - {{ flight.arrival_day }}, {{ flight.arrival_date }}</h6>
+              </div>
+              <div class="col-xs-3 col-sm-3 col-md-3 text-center py-2">
+                <h4>&#8377 {{ flight.price }}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+{% endblock content %}
