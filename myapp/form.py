@@ -19,3 +19,41 @@ class feedbackform(forms.Form):
     name = forms.CharField(label="Enter your name",max_length=100)
     message = forms.CharField(label="Enter your message",max_length=100)
     image = forms.ImageField(label="Enter image",required=False)
+class flight_available(forms.Form):
+    From = forms.CharField(label="from",max_length=100)
+    to = forms.CharField(label="to",max_length=100)
+    arrival = forms.CharField(label="Arrival",max_length=100)
+    departure = forms.CharField(label="Departure",max_length=100)
+    date = forms.CharField(label="date",max_length=100)
+    CHOICES = [('economy class','economy class'), ('bussiness class', 'bussiness class')]
+    category = forms.ChoiceField(choices=CHOICES,widget=forms.RadioSelect)
+    CHOICES = [('round trip', 'round trip'), ('one way', 'one way')]
+    trip_type = forms.ChoiceField(choices=CHOICES,widget=forms.RadioSelect)
+    charges = forms.CharField(label="Charges",max_length=100)
+
+class flight_search(forms.Form):
+    From = forms.CharField(label="from", max_length=100)
+    to = forms.CharField(label="to", max_length=100)
+    date = forms.CharField(label="date", max_length=100)
+    CHOICE = [('economy class', 'economy class'), ('bussiness class', 'bussiness class')]
+    category = forms.ChoiceField(choices=CHOICE, widget=forms.RadioSelect)
+    CHOICES = [('round trip', 'round trip'), ('one way', 'one way')]
+    trip_type = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect)
+class flight_booking(forms.Form):
+    From = forms.CharField(label="from", max_length=100)
+    to = forms.CharField(label="to", max_length=100)
+    arrival = forms.CharField(label="Arrival", max_length=100)
+    departure = forms.CharField(label="Departure", max_length=100)
+    date = forms.CharField(label="date", max_length=100)
+    CHOICES = [('economy class', 'economy class'), ('bussiness class', 'bussiness class')]
+    category = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect)
+    CHOICES = [('round trip', 'round trip'), ('one way', 'one way')]
+    trip_type = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect)
+    charges = forms.CharField(label="Charges", max_length=100)
+
+class flight_payment(forms.Form):
+    costing = forms.CharField(label="Costing", max_length=100)
+    CHOICES = [('DEBIT CARD', 'DEBIT CARD'), ('CREDIT CARD', 'CREDIT CARD'), ('ONLINE TRANSACTION', 'ONLINE TRANSACTION')]
+    payment_mode = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect)
+    booking_date = forms.CharField(label="Booking date", max_length=100)
+

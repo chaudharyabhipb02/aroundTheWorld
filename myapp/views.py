@@ -3,7 +3,7 @@ from .form import RegistrationForm1
 from .form import LoginForm1
 from .form import feedbackform
 from .models import tb_register
-from myapp.models import feedback
+from .models import feedback
 
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 
@@ -94,7 +94,7 @@ def contacts(request):
     else:
         return render(request, "myapp/contacts.html", {'msg':"For SignUp","click":"Click Here",'btn_chk':False})
 def display_feedback(request):
-    p=feedback.objects.all().values('image')
+    p=feedback.objects.all()
     print(p)
     return render(request,"myapp/about.html",{"key":p})
 
@@ -106,3 +106,79 @@ def delete_session(request):
     return HttpResponseRedirect("home")
 def common(request):
     return render(request,'myapp/com.html')
+def amritsar(request):
+    return render(request,'myapp/amritsar.html')
+
+from .form import flight_booking
+from .models import flight_avail
+
+def book(request):
+    s1=flight_avail.objects.all()
+    s2=list(s1)
+    return render(request,'myapp/viewflites.html',{'s2':s2})
+
+
+from .form import flight_search
+
+def search(request):
+     if request.method == 'POST':
+          form = flight_search(request.POST)
+          if form.is_valid():
+                From = form.cleaned_data["From"]
+                to = form.cleaned_data["to"]
+                date = form.cleaned_data["date"]
+                category = form.cleaned_data["category"]
+                trip_type = form.cleaned_data["trip_type"]
+
+                s=flight_avail.objects.filter(From=From,to=to,date=date,category=category,trip_type=trip_type)
+                if (s.count() > 0):
+
+
+
+                    #s1=flight_avail.objects.get(From=From,to=to,date=date)
+                    s2=list(s)
+                    return render(request,'myapp/viewflites.html',{'s2':s2})
+                else:
+                    return HttpResponse("not")
+
+          else:
+            form=flight_search
+            return render(request, 'myapp/search_flights.html', {'form': form})
+
+     else:
+         form = flight_search
+         return render(request, 'myapp/search_flights.html', {'form': form})
+
+
+from .models import flight_book
+
+def f_book(request):
+
+
+    if request.session.has_key("username"):
+        username = request.session["username"]
+        print('h2')
+        s = tb_register.objects.filter(email=username)
+        l = list(s)
+        q = l[0]
+
+        s1 = flight_avail.objects.get()
+        a = s1.From
+        b = s1.to
+        c = s1.arrival
+        d = s1.departure
+        e = s1.date
+        f = s1.category
+        g = s1.trip_type
+        h = s1.charges
+
+        s1.save()
+
+
+        s2 = flight_booking(From=a, to=b, arrival=c, departure=d, date=e, category=f, trip_type=g, charges=h, uid=q)
+        s2.save()
+        return HttpResponse('book')
+    else:
+        return HttpResponse('not book')
+
+

@@ -2,14 +2,19 @@
 {% extends "myapp/com.html" %}
 {% load static %}
 {% block content %}
-      <div>
-        {% for item in key %}
+<h2>User Feedback</h2>
 
+        {% for item in key %}
+<div class="wrapper under" style="width: 100%; float: left;">
+        <div style="width: 60%; float: left;">
         <p>{{item.message}}</p>
-        <img src='{% static "images/" %}{{item.image}}' alt="">
-        {% endfor %}
-      </div>
-{% endblock %}
+        <p>{{item.name}}</p>
+        </div>
+        <div style="width: 30%; float: right;"><img src='{% static "images/" %}{{item.image}}' alt="no image" height="200" width="200"></div>
+  </div>
+  {% endfor %}
+
+
     </header>
     <section id="content">
       <article class="col1">
@@ -61,6 +66,7 @@
   </div>
   <div class="block"></div>
 </div>
+{% endblock %}
 <div class="body1">
   <div class="main">
     <footer>

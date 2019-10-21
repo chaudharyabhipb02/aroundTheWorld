@@ -3,12 +3,16 @@
 {% load static %}
 {% block content %}
 
-      <article class="col1">
+
+
+
+ <article class="col1">
+
         <ul class="tabs">
           <li><a href="#" class="active">Flight</a></li>
           <li><a href="#">Hotel</a></li>
-          <li><a href="#">Car</a></li>
-          <li class="end"><a href="#">Cruise</a></li>
+          <li class="end"><a href="#">Car</a></li>
+
         </ul>
         <div class="tabs_cont">
           <form id="form_1" action="#" method="post">
@@ -45,7 +49,7 @@
                   <input type="radio" name="name2">
                   Business</div>
               </div>
-              <div class="wrapper pad_bot1"> <a href="#" class="button">Search</a> Audlts
+              <div class="wrapper pad_bot1"> <a href="book" class="button">Search</a> Audlts
                 <select>
                   <option>1</option>
                 </select>
@@ -54,6 +58,8 @@
           </form>
         </div>
       </article>
+
+
       <article class="col1 pad_left1">
         <div class="text"> <img src='{% static "images/text1.jpg"%}' alt="">
           <h2>The Best Offers</h2>
@@ -105,16 +111,6 @@
   </div>
   <div class="block"></div>
 </div>
-<div class="body1">
-  <div class="main">
-    <footer>
-      <div class="footerlink">
-        <p class="lf">Copyright &copy; 2010 <a href="#">SiteName</a> - All Rights Reserved</p>
-        <p class="rf">Design by <a href="http://www.templatemonster.com/">TemplateMonster</a></p>
-        <div style="clear:both;"></div>
-      </div>
-    </footer>
-  </div>
-</div>
+
 <script type="text/javascript"> Cufon.now(); </script>
 {% endblock %}
